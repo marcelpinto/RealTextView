@@ -1,10 +1,7 @@
 .gradle
 /local.properties
-/.idea/workspace.xml
 /.idea/libraries
 .DS_Store
-/build
-
 library/proguard-rules.pro
 library/library.iml
 gradlew
