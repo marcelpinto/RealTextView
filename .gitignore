@@ -4,3 +4,12 @@
 /.idea/libraries
 .DS_Store
 /build
+
+library/proguard-rules.pro
+library/library.iml
+gradlew
+gradlew.bat
+RealTextView.iml
+.idea
+gradle
+build
