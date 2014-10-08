@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RealTextView">
+        <attr name="minTextSize" format="dimension" />
+        <attr name="precision" format="float" />
+        <attr name="sizeToFit" format="boolean" />
+        <attr name="font" format="string" />
+    </declare-styleable>
+
+    <!-- Allows attribute use in an AppTheme definition -->
+    <declare-styleable name="RealTextViewTheme">
+        <attr name="fontifyStyle" format="reference"/>
+    </declare-styleable>
+
+</resources>

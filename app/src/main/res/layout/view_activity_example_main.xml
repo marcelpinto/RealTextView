@@ -1,0 +1,66 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:real="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".ExampleMainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <org.hardsoft.real.textview.views.RealTextView
+            android:text="Move to add text to see how it resizes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/w_seb_example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <org.hardsoft.real.textview.views.RealTextView
+            android:id="@+id/w_rtv_example1"
+            android:text="@string/txt_example1"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            real:font="fonts/DroidSerif.ttf"
+            android:textSize="25sp"
+            real:minTextSize="5sp" />
+
+        <org.hardsoft.real.textview.views.RealTextView
+            android:id="@+id/w_rtv_example2"
+            android:text="@string/txt_example2"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:maxLines="2"
+            real:font="fonts/Roboto-Black.ttf"
+            real:minTextSize="8sp" />
+
+        <org.hardsoft.real.textview.views.RealButton
+            android:id="@+id/w_rbut_example3"
+            android:text="@string/txt_example3"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:background="@android:color/holo_blue_dark"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:singleLine="true"
+            real:font="fonts/Roboto-Thin.ttf"
+            real:minTextSize="8sp" />
+    </LinearLayout>
+</ScrollView>
