@@ -2,7 +2,11 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="fontifyStyle">@style/CustomTextViewStyle</item>
+    </style>
+
+    <style name="CustomTextViewStyle">
+        <item name="font">@string/app_default_font</item>
     </style>
 
 </resources>

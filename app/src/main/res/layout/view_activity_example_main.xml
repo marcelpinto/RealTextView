@@ -32,8 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            real:font="fonts/DroidSerif.ttf"
-            android:textSize="25sp"
+            android:textSize="30sp"
             real:minTextSize="5sp" />
 
         <org.hardsoft.real.textview.views.RealTextView
@@ -43,7 +42,7 @@
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
+            android:textSize="30sp"
             android:maxLines="2"
             real:font="fonts/Roboto-Black.ttf"
             real:minTextSize="8sp" />
@@ -56,11 +55,40 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:gravity="center"
-            android:background="@android:color/holo_blue_dark"
+            android:background="@drawable/selector_button"
             android:textColor="@android:color/white"
             android:textSize="25sp"
             android:singleLine="true"
             real:font="fonts/Roboto-Thin.ttf"
             real:minTextSize="8sp" />
+
+        <org.hardsoft.real.textview.views.RealTextView
+            android:id="@+id/w_rtv_example4"
+            android:text="@string/txt_example4"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            real:font="fonts/DroidSerif.ttf"
+            android:textSize="30sp"
+            real:minTextSize="5sp" />
+
+        <!-- Must set a fixed size or the animation will resize the button-->
+        <org.hardsoft.real.textview.views.RealButton
+            android:id="@+id/w_rbut_example5"
+            android:text="@string/txt_example5"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/selector_button"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:singleLine="true"
+            real:font="fonts/Roboto-Thin.ttf"
+            real:minTextSize="8sp" />
+
     </LinearLayout>
 </ScrollView>

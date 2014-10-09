@@ -41,6 +41,7 @@ public class UrlImageGetter implements ImageGetter {
     private String mUrl;
     private int mWidth;
     private int mHeight;
+    private int mGravity;
 
     /**
      * Construct the URLImageParser which will execute AsyncTask and refresh the container
@@ -56,10 +57,13 @@ public class UrlImageGetter implements ImageGetter {
     public Drawable getDrawable(String source) {
         parseUrl(source);
 
-        Log.d("MPB","URL: "+mUrl+" width: "+mWidth+" height "+mHeight);
+        Log.d("MPB", "URL: " + mUrl + " width: " + mWidth + " height " + mHeight);
 
         UrlDrawable urlDrawable = new UrlDrawable();
-        urlDrawable.setBounds(0,0, mWidth, mHeight);
+        urlDrawable.setBounds(0, 0, mWidth, mHeight);
+        if (mGravity>0) {
+            urlDrawable.setGravity(mGravity);
+        }
 
         // get the actual source
         ImageGetterAsyncTask asyncTask = new ImageGetterAsyncTask(urlDrawable);
@@ -72,20 +76,22 @@ public class UrlImageGetter implements ImageGetter {
 
     private void parseUrl(String source) {
 
-        if (source==null || source.isEmpty())
+        if (source == null || source.isEmpty())
             throw new RealHtmlTextViewException("The url is invalid");
 
         int index = source.lastIndexOf(RealUrl.TAG_SPLITER);
-        if (index<0)
+        if (index < 0)
             throw new RealHtmlTextViewException("No spliter tag found for remote image");
 
-        mUrl = source.substring(0,index);
-        String sizeTag = source.substring(index+RealUrl.TAG_SPLITER.length(),source.length());
-        for (String param: sizeTag.split(RealUrl.TAG_PARAM_SPLITER)) {
+        mUrl = source.substring(0, index);
+        String sizeTag = source.substring(index + RealUrl.TAG_SPLITER.length(), source.length());
+        for (String param : sizeTag.split(RealUrl.TAG_PARAM_SPLITER)) {
             if (param.contains(RealUrl.TAG_WIDTH)) {
-                mWidth = SizeUtils.convertPixtoDip(c,Integer.parseInt(param.replaceAll("[^\\d.]", "")));
+                mWidth = SizeUtils.convertPixtoDip(c, Integer.parseInt(param.replaceAll("[^\\d.]", "")));
             } else if (param.contains(RealUrl.TAG_HEIGHT)) {
-                mHeight = SizeUtils.convertPixtoDip(c,Integer.parseInt(param.replaceAll("[^\\d.]", "")));
+                mHeight = SizeUtils.convertPixtoDip(c, Integer.parseInt(param.replaceAll("[^\\d.]", "")));
+            } else if (param.contains(RealUrl.TAG_GRAVITY)) {
+                mGravity = Integer.parseInt(param.replaceAll("[^\\d.]", ""));
             }
         }
     }
@@ -110,10 +116,7 @@ public class UrlImageGetter implements ImageGetter {
                 Log.e("MPB", "RealTextView could not retrieve image");
                 return;
             }
-
-            Log.d("MPB","HTML img retrieved: "+result.getIntrinsicWidth()+" "+ result.getIntrinsicHeight());
-
-            urlDrawable.setBounds(0, 0, result.getIntrinsicWidth(), result.getIntrinsicHeight());
+            Log.d("MPB", "HTML img retrieved: " + result.getIntrinsicWidth() + " " + result.getIntrinsicHeight());
 
             // change the reference of the current drawable to the result from the HTTP call
             urlDrawable.drawable = result;

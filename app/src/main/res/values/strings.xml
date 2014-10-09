@@ -2,10 +2,13 @@
 <resources>
 
     <string name="app_name">RealTextView</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_default_font">fonts/RobotoCondensed-Light.ttf</string>
     <string name="action_settings">Settings</string>
     <string name="txt_example1">Resize (min 5sp)</string>
     <string name="txt_example2">Resize (min 8sp)</string>
     <string name="txt_example3">Button fixed size</string>
+    <string name="txt_example4">Loading text...</string>
+    <string name="txt_example5">Click to load</string>
+    <string name="title_activity_main">MainActivity</string>
 
 </resources>

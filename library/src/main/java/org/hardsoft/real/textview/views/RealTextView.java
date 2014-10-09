@@ -2,9 +2,11 @@ package org.hardsoft.real.textview.views;
 
 
 import android.content.Context;
+import android.os.Handler;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 
 import org.hardsoft.real.textview.utils.AutofitHelper;
@@ -19,8 +21,15 @@ import java.io.InputStream;
 public class RealTextView extends BaseTextView implements AutofitHelper.OnTextSizeChangeListener {
 
     public static final boolean DEBUG = true;
+    private static final long DEFAULT_ANIMATION_SPEED = 100;
 
     private AutofitHelper mHelper;
+    private Handler mAnimateHandler;
+    private CharSequence mCurrentText;
+    private int mCurrentIndex;
+    private long mAnimationSpeed = DEFAULT_ANIMATION_SPEED;
+    private boolean isReverseMode = true;
+    public boolean isForwardAnim=true;
 
     public RealTextView(Context context) {
         this(context, null, 0);
@@ -266,9 +275,67 @@ public class RealTextView extends BaseTextView implements AutofitHelper.OnTextSi
 
         // make links work
         setMovementMethod(LinkMovementMethod.getInstance());
-
-        // no flickering when clicking textview for Android < 4, but overriders color...
-//        text.setTextColor(getResources().getColor(android.R.color.secondary_text_dark_nodisable));
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        Log.v("MPB","Detached from win");
+        if (mAnimateHandler!=null)
+            mAnimateHandler.removeCallbacksAndMessages(null);
+    }
+
+    public void setIndeterminateLoadingTextView(boolean anim) {
+        if (mAnimateHandler==null) {
+            if (!anim)
+                return;
+            mAnimateHandler = new Handler();
+        }
+
+        mCurrentText = getText();
+        mCurrentIndex = 0;
+        setText(""+mCurrentText.charAt(0));
+        mAnimateHandler.postDelayed(isReverseMode?ReverseLoadingRunnable:LoadingRunnable, mAnimationSpeed);
+    }
+
+    Runnable LoadingRunnable = new Runnable() {
+        @Override
+        public void run() {
+
+            if (++mCurrentIndex>=mCurrentText.length()) {
+                mCurrentIndex=0;
+                setText(""+mCurrentText.charAt(0));
+            } else {
+                setText(getText().toString()+mCurrentText.charAt(mCurrentIndex));
+            }
+            if (isAttachedToWindow()&& getVisibility()==VISIBLE)
+                mAnimateHandler.postDelayed(this, mAnimationSpeed);
+        }
+    };
+
+    Runnable ReverseLoadingRunnable = new Runnable() {
+
+        @Override
+        public void run() {
+
+            mCurrentIndex = isForwardAnim?mCurrentIndex+1:mCurrentIndex-1;
+            if (mCurrentIndex>=mCurrentText.length()) {
+                isForwardAnim = false;
+                --mCurrentIndex;
+            } else if (mCurrentIndex<0) {
+                isForwardAnim=true;
+                ++mCurrentIndex;
+            }
+            if (isForwardAnim) {
+                setText(getText().toString()+mCurrentText.charAt(mCurrentIndex));
+            } else
+                setText(getText().toString().substring(0,mCurrentIndex));
+            if (isAttachedToWindow() && getVisibility()==VISIBLE)
+                mAnimateHandler.postDelayed(this, mAnimationSpeed);
+        }
+    };
+
+    public void setAnimationSpeed(long speed) {
+        this.mAnimationSpeed = speed;
+    }
 }

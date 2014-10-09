@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SeekBar;
 
 import org.hardsoft.real.textview.views.RealButton;
@@ -19,6 +20,8 @@ public class ExampleMainActivity extends Activity implements SeekBar.OnSeekBarCh
     private RealTextView mExample1;
     private RealTextView mExample2;
     private RealButton mExample3;
+    private RealTextView mExample4;
+    private RealButton mExample5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,15 @@ public class ExampleMainActivity extends Activity implements SeekBar.OnSeekBarCh
         mExample1 = (RealTextView) findViewById(R.id.w_rtv_example1);
         mExample2 = (RealTextView) findViewById(R.id.w_rtv_example2);
         mExample3 = (RealButton) findViewById(R.id.w_rbut_example3);
+        mExample4 = (RealTextView) findViewById(R.id.w_rtv_example4);
+        mExample5 = (RealButton) findViewById(R.id.w_rbut_example5);
+        mExample4.setIndeterminateLoadingTextView(true);
+        mExample5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mExample5.setIndeterminateLoadingButton(true,"Loading...");
+            }
+        });
 
     }
 
