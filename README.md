@@ -28,13 +28,13 @@ the real:enabled="false" tag in the XML or by code with the setAutoFit(false).
 
 XML usage:
 
-...
+```
 <com.hardsoftstudio.real.textview.views.RealTextView
             //the normal xml tags
             android:singleLine="true"
             android:textSize="30sp"
             real:minTextSize="5sp" />
-...
+```
 
 
 
