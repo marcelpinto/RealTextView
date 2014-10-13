@@ -61,7 +61,7 @@ public class AutofitHelper {
      */
     public static AutofitHelper create(TextView view, AttributeSet attrs, int defStyle) {
         AutofitHelper helper = new AutofitHelper(view);
-        boolean sizeToFit = true;
+        boolean enabled = true;
         if (attrs != null) {
             Context context = view.getContext();
             int minTextSize = (int) helper.getMinTextSize();
@@ -72,7 +72,7 @@ public class AutofitHelper {
                     R.styleable.RealTextView,
                     defStyle,
                     0);
-            sizeToFit = ta.getBoolean(R.styleable.RealTextView_sizeToFit, sizeToFit);
+            enabled = ta.getBoolean(R.styleable.RealTextView_autoEnabled, true);
             minTextSize = ta.getDimensionPixelSize(R.styleable.RealTextView_minTextSize,
                     minTextSize);
             precision = ta.getFloat(R.styleable.RealTextView_precision, precision);
@@ -81,7 +81,7 @@ public class AutofitHelper {
             helper.setMinTextSize(minTextSize)
                 .setPrecision(precision);
         }
-        helper.setEnabled(sizeToFit);
+        helper.setEnabled(enabled);
 
         return helper;
     }

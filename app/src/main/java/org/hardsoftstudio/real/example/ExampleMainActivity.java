@@ -40,7 +40,7 @@ public class ExampleMainActivity extends Activity implements SeekBar.OnSeekBarCh
         mExample5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mExample5.setIndeterminateLoadingButton(true,"Loading...");
+                mExample5.setIndeterminateLoadingButton(true, true,"Loading...");
             }
         });
 

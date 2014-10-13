@@ -4,8 +4,8 @@
     <declare-styleable name="RealTextView">
         <attr name="minTextSize" format="dimension" />
         <attr name="precision" format="float" />
-        <attr name="sizeToFit" format="boolean" />
         <attr name="font" format="string" />
+        <attr name="autoEnabled" format="boolean" />
     </declare-styleable>
 
     <!-- Allows attribute use in an AppTheme definition -->

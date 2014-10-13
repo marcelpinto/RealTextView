@@ -13,6 +13,10 @@ This is what RealTextView does. As well for Button, CheckBox and EditText.
 * RealTextView and RealButton with indeterminate progress loading</li>
 * HTML text view extension, use RealTextView with html String.</li>
 
+## Sample
+
+[![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](http://play.google.com/store/apps/details?id=com.hardsoftstudio.real.textview)
+
 ## Usage
 
 ```
@@ -21,26 +25,109 @@ dependencies {
 }
 ```
 
+SDK version >= 14
+
 ### AutoFit:
 
-The autofit function is enabled by default with a minimum size of 12dip. If you want to disabled use
-the real:enabled="false" tag in the XML or by code with the setAutoFit(false).
+The Autofit function is enabled by default with a minimum size of 12dip. If you want to disabled use
+the real:autoEnabled="false" tag in the XML or by code with the setAutoFit(false).
 
 XML usage:
 
 ```
 <com.hardsoftstudio.real.textview.views.RealTextView
             //the normal xml tags
-            android:singleLine="true"
+            android:singleLine="true" // or android:maxLines="n" must set a limit in order to compute the autofit
             android:textSize="30sp"
             real:minTextSize="5sp" />
 ```
 
+### Font:
+
+The RealTextView allows to set custom fonts using assets resources, you can set up just for a TextView
+or you can set it up as style and theme.
+
+As a theme
+
+```
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="fontifyStyle">@style/CustomTextViewStyle</item>
+    </style>
+
+    <style name="CustomTextViewStyle">
+        <item name="font">@string/app_default_font</item>
+    </style>
+
+    <!-- in strings.xml -->
+    <string name="app_default_font">fonts/RobotoCondensed-Light.ttf</string>
+```
+
+Just for a textview
+
+```
+<com.hardsoftstudio.real.textview.views.RealTextView
+            android:maxLines="2"
+            real:font="fonts/Roboto-Black.ttf"
+            real:minTextSize="8sp" />
+```
+
+The font can be set from Java code but the good thing of this lib is to avoid setting up the font in
+java code everytime.
+
+### Extended TextView HTML tags
+
+* ``<ul>``
+* ``<ol>``
+* ``<dd>``
+* ``<li>``
+* ``<code>``
+* ``<center>``
+
+### Set HTML
+
+```
+text.setHtmlFromString(
+                "<center><h2>You can load images and use center tag</h2>" +
+                "<img src=\""+imgUrl+"\"></center>" +
+                "<h3>You can list as well</h3>"+
+                "<ul>\n" +
+                "  <li>Coffee</li>\n" +
+                "  <li>Tea</li>\n" +
+                "  <li>Milk</li>\n" +
+                "</ul>" +
+                "<h3>You can use cites and a lot of more tags</h3>" +
+                "<p><cite>The Scream</cite> by Edward Munch. Painted in 1893.</p>",false);
+```
+
+In order to correctly display the image, the size must be set. This is an problem of using html in the textview
+To fix this the best solution approached is this:
+```
+String imgUrl = RealUrl.makeImageUrl("Url to any image", 512, 512, Gravity.START);
+```
+
+Must remark that it's not a WebView it's a TextView! So it has it's pros and contras.
+
+### Indeterminate progress Text
+
+You can use RealTextView or RealButton to set a Indeterminate text to show a loading efect.
+```
+    mRealButton.setIndeterminateLoadingButton(isAnimated,isReverseMode,"Loading...");
+```
+The code above will change the text of the Button and make a writing animation forward and backwards if
+isReverseMode=true
+
+## Acknowledgment
+
+This library is a mix of other libraries plus some improvements. Must of the work is made by the following open sources projects:
+
+* [AutoFitTextView](https://github.com/grantland/android-autofittextview) developed by [Grantland Chew](https://github.com/grantland)
+* [Fontify](https://github.com/danh32/Fontify) developed by [Dan Hill](https://github.com/danh32)
+* [HtmlTextView](https://github.com/dschuermann/html-textview) developed by [Dominik Schürmann](https://github.com/dschuermann)
 
 
 ## License
 
-    Copyright 2013 Chris Banes
+    Copyright 2013 Marcel Pintó Biescas
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

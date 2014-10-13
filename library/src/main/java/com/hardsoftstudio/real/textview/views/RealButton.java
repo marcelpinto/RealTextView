@@ -219,7 +219,7 @@ public class RealButton extends Button implements AutofitHelper.OnTextSizeChange
             mAnimateHandler.removeCallbacksAndMessages(null);
     }
 
-    public void setIndeterminateLoadingButton(boolean anim, String text) {
+    public void setIndeterminateLoadingButton(boolean anim, boolean reverseMode, String text) {
         if (!anim) {
             if (mAnimateHandler!=null) {
                 mAnimateHandler.removeCallbacksAndMessages(null);
@@ -228,6 +228,8 @@ public class RealButton extends Button implements AutofitHelper.OnTextSizeChange
             mAnimateHandler=null;
             return;
         }
+
+        isReverseMode=reverseMode;
 
         if (mAnimateHandler==null)
             mAnimateHandler = new Handler();
