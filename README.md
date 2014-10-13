@@ -118,7 +118,7 @@ isReverseMode=true
 
 ## Acknowledgment
 
-This library is a mix of other libraries plus some improvements. Must of the work is made by the following open sources projects:
+This library is a mix of other libraries plus some improvements. Most of the work is made by the following open sources projects:
 
 * [AutoFitTextView](https://github.com/grantland/android-autofittextview) developed by [Grantland Chew](https://github.com/grantland)
 * [Fontify](https://github.com/danh32/Fontify) developed by [Dan Hill](https://github.com/danh32)

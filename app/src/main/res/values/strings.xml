@@ -10,5 +10,6 @@
     <string name="txt_example4">Loading text...</string>
     <string name="txt_example5">Click to load</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="txt_info">Real Examples (Autofit,font and loading examples)\n\nReal HTML examples (extended HTML tags and HTML image loading with RealTextView)</string>
 
 </resources>

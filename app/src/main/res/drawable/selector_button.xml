@@ -5,7 +5,7 @@
     <item android:state_pressed="true">
         <shape>
             <solid android:color="@android:color/holo_blue_dark"/>
-            <stroke android:color="@android:color/white" android:width="2dp"/>
+            <stroke android:color="#ffb9e2ff" android:width="4dp"/>
         </shape>
     </item>
 

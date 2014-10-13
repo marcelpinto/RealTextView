@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textColor="#60000000"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:singleLine="true"
         real:minTextSize="5sp"
         android:text="Because it's not a webview you can set a transparent background" />
