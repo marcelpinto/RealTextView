@@ -21,7 +21,7 @@ This is what RealTextView does. As well for Button, CheckBox and EditText.
 
 ```
 dependencies {
-    compile 'com.hardsoftstudio.real.textview:library:0.88'
+    compile 'com.hardsoftstudio.real.textview:library:0.9.0'
 }
 ```
 
@@ -127,7 +127,7 @@ This library is a mix of other libraries plus some improvements. Most of the wor
 
 ## License
 
-    Copyright 2013 Marcel Pintó Biescas
+    Copyright 2014 Marcel Pintó Biescas
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
