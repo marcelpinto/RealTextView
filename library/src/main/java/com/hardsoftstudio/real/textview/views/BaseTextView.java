@@ -24,10 +24,14 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.hardsoftstudio.real.textview.utils.AutofitHelper;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BaseTextView extends TextView {
+
+    protected AutofitHelper mHelper;
 
     private static class FixingResult {
         public final boolean fixed;
@@ -194,6 +198,17 @@ public class BaseTextView extends TextView {
         }
         String fallbackText = getText().toString();
         setTextAndMeasure(fallbackText, widthMeasureSpec, heightMeasureSpec);
+    }
+
+    /**
+     * By default the autofit is enabled, it automatically disabled when using html text
+     * @param b true to enable, false otherwise
+     */
+    public void setAutoFit(boolean b) {
+        if (mHelper!=null)
+            mHelper.setEnabled(b);
+        else
+            throw new NullPointerException("The autofit is not init");
     }
 
 }

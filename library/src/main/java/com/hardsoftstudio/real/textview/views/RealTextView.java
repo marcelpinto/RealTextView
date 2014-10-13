@@ -23,7 +23,6 @@ public class RealTextView extends BaseTextView implements AutofitHelper.OnTextSi
     public static final boolean DEBUG = false;
     private static final long DEFAULT_ANIMATION_SPEED = 100;
 
-    private AutofitHelper mHelper;
     private Handler mAnimateHandler;
     private CharSequence mCurrentText;
     private int mCurrentIndex;
@@ -218,16 +217,7 @@ public class RealTextView extends BaseTextView implements AutofitHelper.OnTextSi
         // do nothing
     }
 
-    /**
-     * By default the autofit is enabled, it automatically disabled when using html text
-     * @param b true to enable, false otherwise
-     */
-    public void setAutoFit(boolean b) {
-        if (mHelper!=null)
-            mHelper.setEnabled(b);
-        else
-            throw new NullPointerException("The autofit is not init");
-    }
+
 
     /**
      * http://stackoverflow.com/questions/309424/read-convert-an-inputstream-to-a-string
