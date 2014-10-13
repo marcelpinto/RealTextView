@@ -10,3 +10,5 @@ RealTextView.iml
 .idea
 gradle
 build
+signing.properties
+library/keystore

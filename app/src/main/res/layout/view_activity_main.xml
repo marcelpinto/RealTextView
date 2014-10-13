@@ -9,9 +9,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:gravity="center"
-    tools:context="org.hardsoft.real.example.MainActivity">
+    tools:context="org.hardsoftstudio.real.example.MainActivity">
 
-    <org.hardsoft.real.textview.views.RealButton
+    <com.hardsoftstudio.real.textview.views.RealButton
         android:id="@+id/w_rbut_realexample"
         android:text="Real Examples"
         android:layout_marginTop="20dp"
@@ -25,7 +25,7 @@
         android:singleLine="true"
         real:minTextSize="8sp" />
 
-    <org.hardsoft.real.textview.views.RealButton
+    <com.hardsoftstudio.real.textview.views.RealButton
         android:id="@+id/w_rbut_htmlexample"
         android:text="Real HTML Example"
         android:layout_marginTop="20dp"

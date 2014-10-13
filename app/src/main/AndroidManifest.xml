@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.hardsoft.real.example" >
+    package="org.hardsoftstudio.real.example" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="org.hardsoftstudio.real.example.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,10 +19,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HtmlExampleActivity"
+            android:name="org.hardsoftstudio.real.example.HtmlExampleActivity"
             android:label="HTML Example" />
         <activity
-            android:name=".ExampleMainActivity"
+            android:name="org.hardsoftstudio.real.example.ExampleMainActivity"
             android:label="Real Examples" >
         </activity>
     </application>

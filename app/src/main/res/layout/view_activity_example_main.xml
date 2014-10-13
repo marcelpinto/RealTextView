@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <org.hardsoft.real.textview.views.RealTextView
+        <com.hardsoftstudio.real.textview.views.RealTextView
             android:text="Move to add text to see how it resizes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <org.hardsoft.real.textview.views.RealTextView
+        <com.hardsoftstudio.real.textview.views.RealTextView
             android:id="@+id/w_rtv_example1"
             android:text="@string/txt_example1"
             android:layout_marginTop="20dp"
@@ -35,7 +35,7 @@
             android:textSize="30sp"
             real:minTextSize="5sp" />
 
-        <org.hardsoft.real.textview.views.RealTextView
+        <com.hardsoftstudio.real.textview.views.RealTextView
             android:id="@+id/w_rtv_example2"
             android:text="@string/txt_example2"
             android:layout_marginTop="20dp"
@@ -47,7 +47,7 @@
             real:font="fonts/Roboto-Black.ttf"
             real:minTextSize="8sp" />
 
-        <org.hardsoft.real.textview.views.RealButton
+        <com.hardsoftstudio.real.textview.views.RealButton
             android:id="@+id/w_rbut_example3"
             android:text="@string/txt_example3"
             android:layout_marginTop="20dp"
@@ -62,7 +62,7 @@
             real:font="fonts/Roboto-Thin.ttf"
             real:minTextSize="8sp" />
 
-        <org.hardsoft.real.textview.views.RealTextView
+        <com.hardsoftstudio.real.textview.views.RealTextView
             android:id="@+id/w_rtv_example4"
             android:text="@string/txt_example4"
             android:layout_marginTop="20dp"
@@ -75,7 +75,7 @@
             real:minTextSize="5sp" />
 
         <!-- Must set a fixed size or the animation will resize the button-->
-        <org.hardsoft.real.textview.views.RealButton
+        <com.hardsoftstudio.real.textview.views.RealButton
             android:id="@+id/w_rbut_example5"
             android:text="@string/txt_example5"
             android:layout_marginTop="20dp"
