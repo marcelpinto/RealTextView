@@ -12,3 +12,4 @@ gradle
 build
 signing.properties
 library/keystore
+Thumbs.db
