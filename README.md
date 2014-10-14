@@ -17,6 +17,10 @@ This is what RealTextView does. As well for Button, CheckBox and EditText.
 
 [![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](http://play.google.com/store/apps/details?id=com.hardsoftstudio.real.textview)
 
+![Example Image](/web_resources/rtv_sample.gif?raw=true)
+
+![Example Image](/web_resources/rtv_html.gif?raw=true)
+
 ## Usage
 
 ```
@@ -126,6 +130,8 @@ This library is a mix of other libraries plus some improvements. Most of the wor
 
 
 ## License
+
+This library is composed by other open source libraries, if used, must include all the license files.
 
     Copyright 2014 Marcel Pintó Biescas
 
