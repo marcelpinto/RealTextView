@@ -18,6 +18,7 @@
 package com.hardsoftstudio.real.textview.views;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.util.AttributeSet;
@@ -210,5 +211,15 @@ public class BaseTextView extends TextView {
         else
             throw new NullPointerException("The autofit is not init");
     }
+
+  @Override
+  protected void onSizeChanged (int w, int h, int oldw, int oldh){
+    super.onSizeChanged(w, h, oldw, oldh);
+
+    if (Build.VERSION.SDK_INT < 11){
+      mHelper.autofit();
+    }
+    // Otherwise the OnLayoutChangedListener will be used
+  }
 
 }

@@ -1,18 +1,17 @@
 package com.hardsoftstudio.real.textview.views;
 
-
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.EditText;
-
 import com.hardsoftstudio.real.textview.utils.AutofitHelper;
 import com.hardsoftstudio.real.textview.utils.FontManager;
 
 
 public class RealEditText extends EditText implements AutofitHelper.OnTextSizeChangeListener {
 
-    private AutofitHelper mHelper;
+    protected AutofitHelper mHelper;
 
     public RealEditText(Context context) {
         this(context, null, 0);
@@ -196,4 +195,15 @@ public class RealEditText extends EditText implements AutofitHelper.OnTextSizeCh
     public void onTextSizeChange(float textSize, float oldTextSize) {
         // do nothing
     }
+
+  @Override
+  protected void onSizeChanged (int w, int h, int oldw, int oldh){
+    super.onSizeChanged(w, h, oldw, oldh);
+
+    if (Build.VERSION.SDK_INT < 11){
+      mHelper.autofit();
+    }
+    // Otherwise the OnLayoutChangedListener will be used
+  }
+
 }
