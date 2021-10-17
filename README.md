@@ -1,3 +1,5 @@
+> **Disclaimer:** This library is no longer maintained use at your own risk.
+
 # RealTextView
 
 A new TextView for Android that includes a compilation of libraries to make a real TextView.
